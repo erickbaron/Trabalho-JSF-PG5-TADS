@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+:root {
+    --background: #D5DCDD;
+    --background-navbar: #C4C4C4;
+    --border: #E5E5E5;
+    --cancelBtn: #FF8F96;
+    --saveBtn: #5C8997;
+    --white: #ffffff;
+    --red: #ff5151;
+}

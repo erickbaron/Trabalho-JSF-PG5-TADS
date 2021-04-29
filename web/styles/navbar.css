@@ -1,0 +1,38 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 700px;
+    background: var(--background-navbar);
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 75px;
+}
+.navbar ul {
+    display: flex;
+    list-style: none;
+}
+.navbar ul li input[type=submit]{
+    padding: 1rem;
+    border: none;
+    background: white;
+    cursor: pointer;
+    font-weight: 700;
+    display: inline-block;
+    position: relative;
+    background: #C4C4C4;
+}
+.navbar ul li input[type=submit]:hover{
+    background: #7d7d7d;
+}
+
+.navbar ul li input[type=submit]::after {
+    content: '';
+    height: 3px;
+    border-radius: 3px 3px 0 0;
+    width: 700px;
+    position: absolute;
+    bottom: 1px;
+    left: 0;
+}

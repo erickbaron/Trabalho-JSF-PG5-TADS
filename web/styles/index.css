@@ -1,0 +1,122 @@
+.container {
+    display: flex;
+    flex: 1;
+    flex-direction: column; 
+    min-height: 100%;
+    align-items: center;
+}
+
+.content {
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 8px;
+    background: var(--background);
+}
+
+.filtro-container {
+    display:flex;
+    flex-direction: column;
+}
+
+.pesquisar-label {
+    font-size: 14px;
+    margin-left: 45px
+}
+
+.filtro-input-action {
+    display:flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.filtro-input-text {
+    display: flex;
+    width: 100%;
+    padding: 10px;
+}
+
+.filtro-input-text input[type=text] {
+    width: 85%;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    padding: 5px 10px;
+}
+
+.filtro-action-button {
+    margin-left: auto;
+}
+
+.filtro-action-button input {
+    padding: 5px 25px;
+    background: var(--saveBtn);
+    color: var(--red);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.filtro-categoria-container {
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+.filtro-categoria-container label{
+    margin-left: 3px;
+    margin-right: 5px;
+}
+.combobox-categoria {
+    padding: 5px 10px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background-color: white;
+}
+
+.edit-btn,
+.exclude-btn {
+    cursor: pointer;
+    color: var(--red);
+    border: none;
+    background-color: #FAFEFF;
+}
+
+.datatable {
+    margin: 10px 0;
+    font-family: sans-serif;
+    width: 680px;
+    border: none!important;
+    border-color:  #FAFEFF;
+}
+
+.datatable thead tr {
+    background: var(--background);
+    text-align: left;
+    font-size: 14px;
+    border: none!important;
+    border-color:  #FAFEFF;
+}
+
+.datatable th,
+.datatable td {
+    padding: 10px;
+    border: none!important;
+    border-color:  #FAFEFF;
+}
+
+.datatable tbody tr {
+    border: none!important;
+    background: #FAFEFF;
+    border-color:  #FAFEFF;
+}
+.datatable thead th,
+.datatable tbody,
+.datatable tbody tr,
+.datatable tbody td {
+    border: none!important;
+}
+
+
+

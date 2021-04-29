@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <link rel="stylesheet" type="text/css" href="styles/global.css"/>
+        <link rel="stylesheet" type="text/css" href="styles/index.css"/>
+        
+        <title>Trabalho 1</title>
+    </h:head>
+    <h:body>
+        <h:panelGroup layout="block" styleClass="container">
+            
+            <ui:include src="WEB-INF/navbar.xhtml" />
+            
+            <h:panelGroup layout="block" styleClass="content">
+                
+                <h:form styleClass="filtro-container">
+                    <h:panelGroup layout="block" styleClass="pesquisar-label">
+                        <h:outputLabel>Informe parte do nome do produto</h:outputLabel>
+                    </h:panelGroup>
+
+                    <h:panelGroup layout="block" styleClass="filtro-input-action">
+                        <h:panelGroup layout="block" styleClass="filtro-input-text">
+                            <h:inputText value="#{produtoBean.descricao}" />
+                        </h:panelGroup>
+                        
+                        <h:panelGroup layout="block" styleClass="filtro-action-button">
+                            <h:commandButton value="Pesquisar" action="#{produtoBean.get()}" />
+                        </h:panelGroup>
+                    </h:panelGroup>
+
+                    <h:panelGroup layout="block" styleClass="filtro-categoria-container">
+                        <h:selectBooleanCheckbox styleClass="checkbox-boolean-filtrar" value="#{produtoBean.getIsGetByCategoria}" />
+                        <h:outputLabel >Filtrar por categoria?</h:outputLabel>                                
+                        <h:selectOneMenu styleClass="combobox-categoria" value="#{produtoBean.idCategoria}">
+                            <f:selectItems value="#{categoriaBean.listaCategorias}" var="categoria" itemValue="#{categoria.idCategoria}" itemLabel="#{categoria.descricao}" />
+                        </h:selectOneMenu>
+                    </h:panelGroup>
+                </h:form>
+                <h:form styleClass="form-table">
+                    <h:dataTable 
+                        var="produto"
+                        value="#{produtoBean.listaProdutos}"
+                        rendered="#{not empty produtoBean.listaProdutos}"
+                        styleClass="datatable"
+                    >
+                        <h:column>
+                            <f:facet name="header">Código</f:facet>
+                            <h:outputLabel value="#{produto.idProduto}" />
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">Descrição</f:facet>
+                            <h:outputLabel value="#{produto.descricao}" />
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">Categoria</f:facet>
+                            <h:outputLabel value="#{produtoBean.getCategoriaDescricao(produto.idCategoria)}" />
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">R$ Unitário</f:facet>
+                            <h:outputLabel value="#{produto.preco}" />
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">Estoque</f:facet>
+                            <h:outputLabel value="#{produto.estoque}" />
+                        </h:column>
+
+                        <h:column>
+                            <h:commandButton styleClass="edit-btn"
+                                             value="editar" 
+                                             action="#{produtoBean.redirectEditar(produto.idProduto)}" />
+                        </h:column>
+                        <h:column>
+                            <h:commandButton styleClass="exclude-btn" value="excluir" action="#{produtoBean.redirectExclude(produto.idProduto)}"></h:commandButton>
+                        </h:column>
+                    </h:dataTable>
+                </h:form>
+            </h:panelGroup>            
+        </h:panelGroup>
+    </h:body>
+</html>
